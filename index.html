@@ -1,0 +1,83 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>GuessTheNumber</title>
+    <link rel="stylesheet" href="style.css">
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=Ubuntu&display=swap" rel="stylesheet">
+</head>
+<body>
+    <nav class="nav">
+        <h1 class="heading">
+            GuessTheNumber
+        </h1>
+        <a href="leaderboard.php" class="leads">Leaderboard</a>
+    </nav>
+    <div class="container">
+        <h2 class="h2">Guess the number between 0 to 100</h2>
+        <br>
+        <h3>Enter Guess:</h3>
+        <input class="inp" type="number" name="ans" id="guess" placeholder="000">
+        <button class="btn" id="btn" onclick="guess(),change(this)" onmousedown="this.style.color='red'" onmouseup="this.style.color='black'">Try</button>
+        <div id="suggest" class="suggest">
+
+        </div>
+        <div id="submitting">
+
+        </div>
+    </div>
+
+</body>
+<script>
+    var input = document.getElementById("guess");
+    input.addEventListener("keypress", function(event) {
+    // If the user presses the "Enter" key on the keyboard
+    if (event.key === "Enter") {
+    // Cancel the default action, if needed
+    event.preventDefault();
+    // Trigger the button element with a click
+    document.getElementById("btn").click();
+    }
+});
+
+
+    var count =0;
+    const a = Math.floor(Math.random() * 100);
+    function guess(){
+        count++;
+        
+
+        var b = document.getElementById('guess').value;
+        if (b>a) {
+            document.getElementById('suggest').innerHTML='Guess a smaller number';
+            document.getElementById('suggest').style.color='blue';
+
+        }
+        else if(b<a){
+            document.getElementById('suggest').innerHTML='Guess a bigger number';
+            document.getElementById('suggest').style.color='red';
+
+        }
+        else if(b==a){
+            document.getElementById('suggest').innerHTML='You win in ' +count+ " guesses. <br> Please enter your name in the leaderboard <br> " ;
+            document.getElementById('submitting').innerHTML='<form action="submit.php" method="post"><input type="number" name="count" class="score" value="'+count + '" ><h2 class="sco">  Name: </h2><input type="text" name="name" id="name" class="name"><button class="sub">Submit</button></form>' ;
+            // leaderboard();
+        }
+    }
+    function leaderboard(){
+        window.location = "submit.php";
+    }
+    function change(x){
+        if(x.style.backgroundColor=='burlywood'){
+            x.style.backgroundColor='lawngreen';
+        }
+        else{
+            x.style.backgroundColor='burlywood';
+        }
+    }
+</script>
+</html>

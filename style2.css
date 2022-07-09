@@ -1,0 +1,78 @@
+*{
+    padding: 0;
+    margin: 0;
+    box-sizing: border-box;
+}
+body{
+    background-color: rgb(185, 185, 185);
+}
+.navbar{
+    background-color: yellow;
+    /* padding: 10px; */
+    height: 65px;
+}
+.logo{
+    position: relative;
+    top: -12px;
+    width: 70px;
+}
+.heading{
+    color: darkblue;
+    font-size: 55px;
+    position: relative;
+    display: inline-block;
+    top: -28px;
+    margin-left: 30px;
+    font-family: 'Gulzar', serif;
+}
+.home{
+    float: right;
+    text-decoration: none;
+    font-size: 30px;
+    font-family: 'Titillium Web', sans-serif;
+    margin-right: 30px;
+    position: relative;
+    top: 10px;
+}
+.home:hover{
+    color: red;
+}
+.container{
+    background-color: rgb(250, 250, 214);
+    width: 70%;
+    margin: 0 auto ;
+    display: flex;
+    justify-content: center;
+    
+}
+table{
+    margin-top: 50px;
+    margin-bottom: 50px;
+    border-collapse: collapse;
+    /* border: 1px solid black; */
+    outline: none;
+    width: 30%;
+    text-align: center;
+    border-radius: 10px;
+    
+}
+td,th,tr{
+    border: 1px solid black;
+    border-radius: 5px;
+}
+th{
+    font-size: 30px;
+    /* font-family: 'Gulzar', serif; */
+    font-family: 'Titillium Web', sans-serif;
+    width: 50%;
+    background-color: yellow;
+}
+td{
+    color:darkblue;
+    padding: 5px;
+    background-color: lightblue;
+}
+td:hover{
+    background-color: rgb(24, 24, 24);
+    color: white;
+}
